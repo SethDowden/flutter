@@ -28,8 +28,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 
-# front-end gems
-gem 'flatui-rails'
+#authentication
+gem 'devise'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

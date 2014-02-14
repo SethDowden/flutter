@@ -9,6 +9,21 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require flat-ui
  *= require_tree .
  */
+
+.content-main{
+	width: 590px;
+	float: right;
+}
+.dashboard{
+	width: 290px;
+	float: left;
+}
+
+.wrapper{
+	width: 936px;
+	padding: 56px 23px 15px;
+	position: relative;
+	margin: 0 auto;
+}

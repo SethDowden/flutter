@@ -1,0 +1,10 @@
+<div class="navbar">
+  <div class="navbar-inner">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if current_user %>
+  <%=current_user.email %>
+  <%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
+  <% end %>
+  </div><!-- /navbar-inner -->
+</div>

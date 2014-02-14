@@ -1,6 +1,23 @@
 Flutter::Application.routes.draw do
-  root "index#index"
-  get "index/index"
+  devise_for :users
+
+  # authenticated :user do
+  #   root  "dashboard#show"
+  # end
+  # root "index#index"
+
+  authenticated :user do
+    root :to => "dashboard#show", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root :to => "index#index"
+  end
+
+
+  # get "index/index"
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
