@@ -1,0 +1,22 @@
+<%= render "index/navbar" %>	
+<div class="wrapper">
+	<div class="dashboard">
+		<%= @user.username %>
+		<h5> <%= @user.full_name %></h5>
+		<h5> @<%= @user.username %></h5>
+		<h5>Tweets: <%= @user.tweets.count %></h5>
+		<h5>Followers: <%= @user.followers.count %></h5>
+		<h5>Following: <%= @user.following.count %></h5>
+	</div>
+	<div class="content-main">
+		<h3>Tweets</h3>
+			<% if @user.tweets.count == 0 %>
+				<p> <%= @user.full_name %> has no Tweets</p>
+			<% else %>
+				<% @user.tweets.each do |t| %>
+					<p><%= @user.full_name %> @<%= @user.username %> <%= time_ago_in_words(t.created_at) %></p>
+					<p><%= t.tweet %></p>
+				<% end %>
+			<% end %>
+	</div>
+</div>

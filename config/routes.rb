@@ -1,5 +1,8 @@
 Flutter::Application.routes.draw do
   devise_for :users
+  resources :tweet
+  get '/:username', :to => "user#show"
+
 
   # authenticated :user do
   #   root  "dashboard#show"
@@ -13,8 +16,6 @@ Flutter::Application.routes.draw do
   unauthenticated do
     root :to => "index#index"
   end
-
-
   # get "index/index"
 
   

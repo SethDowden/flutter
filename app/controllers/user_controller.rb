@@ -1,6 +1,9 @@
-class IndexController < ApplicationController
-	before_filter :authenticate_user!
+class UserController < ApplicationController
+	def show
+		puts "srt"
+		puts "@@@@"
 
-  def index
-  end
+		@user = User.ci_find('username', params[:username])
+		puts @user
+	end
 end

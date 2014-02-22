@@ -1,11 +1,18 @@
 <%= render "index/navbar" %>	
 <div class="wrapper">
 	<div class="dashboard">
-		<h5> <%=current_user.email %></h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi leo, malesuada et vulputate id, bibendum porttitor urna. Nunc euismod accumsan turpis, dapibus elementum tortor placerat porta. In sit amet arcu lacus. Praesent vel cursus neque, vitae eleifend neque. Nullam porta magna sed nisi ultricies, vestibulum blandit risus viverra. Duis lectus urna, tempus sit amet neque sit amet, tempor luctus felis. Morbi euismod lectus ut lorem tempor, nec tincidunt mi vehicula. Suspendisse id felis pretium orci aliquam luctus. Aliquam erat volutpat. Nam tincidunt, risus sit amet dignissim imperdiet, neque massa mollis sem, at dictum lacus arcu at orci. Cras posuere eleifend dui, vitae egestas dui. Donec condimentum justo felis, ac facilisis neque vestibulum id. Nullam vestibulum placerat sollicitudin. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		<h5> <%= current_user.full_name %></h5>
+		<h5> @<%= current_user.username %></h5>
+		<h5>Tweets: <%= current_user.tweets.count %></h5>
+		<h5>Followers: <%= current_user.followers.count %></h5>
+		<h5>Following: <%= current_user.following.count %></h5>
 	</div>
 	<div class="content-main">
 		<h3>Tweets</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi leo, malesuada et vulputate id, bibendum porttitor urna. Nunc euismod accumsan turpis, dapibus elementum tortor placerat porta. In sit amet arcu lacus. Praesent vel cursus neque, vitae eleifend neque. Nullam porta magna sed nisi ultricies, vestibulum blandit risus viverra. Duis lectus urna, tempus sit amet neque sit amet, tempor luctus felis. Morbi euismod lectus ut lorem tempor, nec tincidunt mi vehicula. Suspendisse id felis pretium orci aliquam luctus. Aliquam erat volutpat. Nam tincidunt, risus sit amet dignissim imperdiet, neque massa mollis sem, at dictum lacus arcu at orci. Cras posuere eleifend dui, vitae egestas dui. Donec condimentum justo felis, ac facilisis neque vestibulum id. Nullam vestibulum placerat sollicitudin. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		<%= form_for(tweet, method: "post", :url => "/tweet") do |f| %>
+			<div class="form-group">
+				<%= f.text_field :tweet, :class => "form-control", :placeholder => "Tweet" %>
+			</div>
+		<% end %>
 	</div>
 </div>
