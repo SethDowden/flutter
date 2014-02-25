@@ -1,0 +1,9 @@
+<% if current_user %>
+	<%	if current_user.following?(user)	%>
+		<%= button_to "Unfollow", relationship_path({:id => user.id}), :method => :delete %>
+	<% else %>
+		<%= button_to "Follow", relationship_index_path({:id => user.id}), :method => :post %>
+	<% end %>
+<% else %>
+	<%= button_to "Log in to Follow", root_path, :method => :get %>
+<% end %>

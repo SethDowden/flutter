@@ -24,4 +24,14 @@ class User < ActiveRecord::Base
 
   # New Find Case Insinsitive Find For users
   scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
+
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  
 end

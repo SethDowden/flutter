@@ -1,9 +1,13 @@
 class UserController < ApplicationController
 	def show
-		puts "srt"
-		puts "@@@@"
-
 		@user = User.ci_find('username', params[:username])
-		puts @user
+	end
+	
+	def following
+		@following = User.ci_find('username', params[:username])
+	end
+
+	def followers
+		@followers = User.ci_find('username', params[:username])
 	end
 end

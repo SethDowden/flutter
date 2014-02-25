@@ -1,0 +1,18 @@
+<div class="navbar">
+  <div class="navbar-inner">
+  <div>
+	  <%= notice %>
+	  <%= alert %>
+	  <% if current_user %>
+		  <%=current_user.email %>
+		  <%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
+  	<% end %>
+
+  	<i class="fa fa-home"><%= link_to("Home", root_path )%></i>
+  	<i class="fa fa-home"><%= link_to("Home", root_path )%></i>
+  	<i class="fa fa-home"><%= link_to("Home", root_path )%></i>
+  	<i class="fa fa-home"><%= link_to("Home", root_path )%></i>
+  	<i class="fa fa-home"><%= link_to("Home", root_path )%></i>
+  </div>
+  </div><!-- /navbar-inner -->
+</div>
