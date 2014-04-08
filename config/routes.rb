@@ -2,11 +2,16 @@ Flutter::Application.routes.draw do
   devise_for :users
   resources :tweet
   resources :relationship
-  get '/followers', :to => "dashboard#followers"
-  get '/following', :to => "dashboard#following"
-  get '/:username', :to => "user#show"
-  get '/:username/following', :to => "user#following"
-  get '/:username/followers', :to => "user#followers"
+
+  get '/followers', :to => "dashboard#followers", as: "jibjab"
+  get '/following', :to => "dashboard#following", as: "jabjib"
+  
+  get '/settings',   :to => "user#settings",    as: "settings"
+  get '/users',     :to => "user#index",  as: "users"
+  get '/:username', :to => "user#show",   as: "user"
+  
+  get '/:username/following', :to => "user#following", as: 'following'
+  get '/:username/followers', :to => "user#followers", as: 'followers'
 
 
   # authenticated :user do

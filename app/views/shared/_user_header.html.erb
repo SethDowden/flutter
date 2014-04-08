@@ -1,0 +1,47 @@
+<div class="module">
+	<div class="profile">
+			<div class="content">
+				<% if user.avatar %>
+					<%= image_tag user.avatar.url(:thumb), :class => "center" %>
+				<% else %>
+					<img src="hholder.js/48x48/#92d8a5:#74ac84" class="center"> 
+				<% end %></br>
+				<strong class="fullname center"> <%= user.full_name  %></strong></br>
+				<span class="username center"> @<%= user.username %></span></br>
+				<span class="center"><%= user.bio %></span></br>	
+				<span class="center"><%= user.location %>
+
+				<% if user.location && user.website%>
+				•
+				<% end %>
+				 <%= user.website %></span>	
+			</div>
+	</div>
+	<div class="profilefooter">
+		<div class="userstats">
+			<ul class="stats padless">
+				<li>
+					<a href="<%= user_path(user) %>">
+						Tweets
+						<strong><%= user.tweets.count %></strong>
+					</a>
+				</li>
+				<li>
+					<a href="<%= followers_path(user) %>">
+						Followers
+						<strong><%= user.followers.count %></strong>
+					</a>
+				</li>
+				<li>
+					<a href="<%= following_path(user) %>">
+						Following
+						<strong><%= user.following.count %></strong>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="flobtn pull-right">
+				<%= render :partial => "shared/follow_btn", :locals => {:user => @user} %>
+		</div>
+	</div>
+</div>

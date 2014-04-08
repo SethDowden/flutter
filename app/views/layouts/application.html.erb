@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: "shared/navbar" %>
+<% if current_user %>
+	<%= render partial: "shared/navbar" %>
+<% end %>
 <div class="wrapper">
 	<div class="dashboard">
 	<%= yield :dashboard %>

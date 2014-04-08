@@ -1,15 +1,15 @@
 class DashboardController < ApplicationController
 	before_filter :authenticate_user!
 	def show
-		
+		@feed = current_user.feed.order('created_at DESC')
+		@user = current_user
 	end
 
 	def following
-		@following = current_user.following
+
 	end
 
 	def followers
-		@followers = current_user.followers
-	end
 
+	end
 end

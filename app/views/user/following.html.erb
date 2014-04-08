@@ -1,17 +1,11 @@
-<% content_for :dashboard do %>
-	<h5> <%= current_user.full_name %></h5>
-	<h5> @<%= current_user.username %></h5>
-	<h5>Tweets: <%= current_user.tweets.count %></h5>
-	<h5>Followers: <%= current_user.followers.count %></h5>
-	<h5>Following: <%= current_user.following.count %></h5>
-<% end %>
+<%= render :partial => "shared/dashboard_user_header", :locals => {:user => @user} %>
 
+<div class="module">
 <h3>Following</h3>
-<div>
-	<% if @following.count == 0 %>
+	<% if @user.following.count == 0 %>
 		<p> You are not following anyone!</p>
 	<% else %>
-		<% @following.each do |user| %>
+		<% @user.following.each do |user| %>
 			<%= render :partial => "shared/user", :locals => {:user => user}  %>
 		<% end %>
 	<% end %>

@@ -1,19 +1,12 @@
-<% content_for :dashboard do %>
-	<%= @user.username %>
-	<h5> <%= @user.full_name %></h5>
-	<h5> @<%= @user.username %></h5>
-	<h5>Tweets: <%= @user.tweets.count %></h5>
-	<h5>Followers: <%= @user.followers.count %></h5>
-	<h5>Following: <%= @user.following.count %></h5>
-<% end %>
+<%= render :partial => "shared/user_header", :locals => {:user => @user} %>
 
-<%= render :partial => "shared/follow_btn", :locals => {:user => @user} %>
-
+<div class="module">
 <h3>Tweets</h3>
 	<% if @user.tweets.count == 0 %>
 		<p> <%= @user.full_name %> has no Tweets</p>
 	<% else %>
-		<% @user.tweets.each do |t| %>
-			<%= render :partial => "shared/tweet", :locals => {:t => t}  %>
+		<% @tweets.each do |tweet| %>
+			<%= render :partial => "shared/tweet", :locals => {:tweet => tweet}  %>
 		<% end %>
 	<% end %>
+</div>

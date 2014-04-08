@@ -1,13 +1,22 @@
 class UserController < ApplicationController
 	def show
 		@user = User.ci_find('username', params[:username])
+		@tweets =  @user.tweets.order('created_at DESC')
 	end
 	
+	def index
+		@users = User.all
+	end
+
 	def following
-		@following = User.ci_find('username', params[:username])
+		@user = User.ci_find('username', params[:username])
 	end
 
 	def followers
-		@followers = User.ci_find('username', params[:username])
+		@user = User.ci_find('username', params[:username])
+	end
+
+	def settings
+		@user = current_user
 	end
 end

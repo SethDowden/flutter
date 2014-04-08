@@ -1,2 +1,15 @@
-<p><%= t.user.full_name %> @<%= t.user.username %> <%= time_ago_in_words(t.created_at) %></p>
-<p><%= t.tweet %></p>
+<div class="tweet">
+	<div class="contetn">
+		<a class="userdata" href="<%= user_path(tweet.user) %>">
+			<% if tweet.user.avatar %>
+				<%= image_tag tweet.user.avatar.url(:thumb), :class => 'tweeting' %>
+			<% else %>
+				<img src="hholder.js/48x48/#92d8a5:#74ac84" class="tweeting"> 
+			<% end %>
+			<strong class="fullname"><%= tweet.user.full_name	%></strong> 
+			<span class="username ">@<%= tweet.user.username %></span>
+		</a>
+		●<%= time_ago_in_words(tweet.created_at) %>
+		<p><%= tweet.tweet %></p>
+	</div>
+</div>

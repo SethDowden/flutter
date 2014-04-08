@@ -1,2 +1,16 @@
-<p><%= user.full_name %> @<%= user.username %></p>
-<%= render :partial => "shared/follow_btn", :locals => {:user => user} %>
+
+
+<div class="tweet">
+	<div class="contetn">
+		<a class="userdata" href="<%= user_path(user) %>">
+			<% if user.avatar %>
+					<%= image_tag user.avatar.url(:thumb), :class => "tweeting" %>
+				<% else %>
+					<img src="hholder.js/48x48/#92d8a5:#74ac84" class="tweeting" > 
+				<% end %>
+			<strong class="fullname"><%= user.full_name	%></strong> 
+			<span class="username ">@<%= user.username %></span>
+		</a>
+		<%= render :partial => "shared/follow_btn", :locals => {:user => user} %>
+	</div>
+</div>

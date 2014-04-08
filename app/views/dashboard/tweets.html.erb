@@ -1,12 +1,12 @@
 <%= render :partial => "shared/dashboard_user_header", :locals => {:user => current_user} %>
 
 <div class="module">
-	<h3>Tweets</h3>
+	<h3>Following</h3>
 	<div>
-		<% if current_user	.tweets.count == 0 %>
-			<p> <%= current_user	.full_name %> has no Tweets</p>
+		<% if current_user.tweets.count == 0 %>
+			<p> You haven't tweeted yet.</p>
 		<% else %>
-			<% @feed.each do |tweet| %>
+			<% current_user.tweets.each do |tweet| %>
 				<%= render :partial => "shared/tweet", :locals => {:tweet => tweet}  %>
 			<% end %>
 		<% end %>

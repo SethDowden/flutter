@@ -1,18 +1,14 @@
-<% content_for :dashboard do %>
-	<h5> <%= current_user.full_name %></h5>
-	<h5> @<%= current_user.username %></h5>
-	<h5>Tweets: <%= current_user.tweets.count %></h5>
-	<h5>Followers: <%= current_user.followers.count %></h5>
-	<h5>Following: <%= current_user.following.count %></h5>
-<% end %>
+<%= render :partial => "shared/dashboard_user_header", :locals => {:user => current_user} %>
 
-<h3>Followers</h3>
-<div>
-	<% if @followers.count == 0 %>
-		<p> No one Cares about you!</p>
-	<% else %>
-		<% @followers.each do |user| %>
-			<%= render :partial => "shared/user", :locals => {:user => user}  %>
+<div class="module">
+	<h3>Followers</h3>
+	<div>
+		<% if current_user.followers.count == 0 %>
+			<p> No one Cares about you!</p>
+		<% else %>
+			<% current_user.followers.each do |user| %>
+				<%= render :partial => "shared/user", :locals => {:user => user}  %>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>

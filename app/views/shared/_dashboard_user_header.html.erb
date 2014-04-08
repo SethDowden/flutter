@@ -1,0 +1,41 @@
+<% content_for :dashboard do %>
+<div class="module">
+	<div class="miniprofile">
+		<a class="userdata" href="<%= user_path(user) %>">
+			<div class="content">
+				<% if user.avatar %>
+					<%= image_tag user.avatar.url(:thumb) %>
+				<% else %>
+					<img src="hholder.js/48x48/#92d8a5:#74ac84"> 
+				<% end %></br>
+				<strong class="fullname cent<er"> <%= user.full_name  %></strong></br>
+				<span class="username center"> @<%= user.username %></span>
+			</div>
+		</a>
+	</div>
+	<div class="profilefooter">
+		<div class="userstats">
+			<ul class="stats">
+				<li>
+					<a href="<%= user_path(user) %>">
+						Tweets
+						<strong><%= user.tweets.count %></strong>
+					</a>
+				</li>
+				<li>
+					<a href="/followers">
+						Followers
+						<strong><%= user.followers.count %></strong>
+					</a>
+				</li>
+				<li>
+					<a href="/following">
+						Following
+						<strong><%= user.following.count %></strong>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<% end %>

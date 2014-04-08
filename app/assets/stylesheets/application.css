@@ -13,6 +13,30 @@
  *= require font-awesome
  */
 
+textarea{
+	resize:none
+}
+
+.module{
+	border-radius: 3px;
+	background-color: white;
+	padding: 6px;
+	margin-bottom: 8px;
+}
+
+.padless{
+	padding: 0;
+}
+
+.login{
+	width: 400px;	
+	margin: 0 auto;
+}
+
+.navbar{
+	margin-bottom: 10px;
+}
+
 .content-main{
 	width: 590px;
 	float: right;
@@ -24,7 +48,115 @@
 
 .wrapper{
 	width: 936px;
-	padding: 56px 23px 15px;
+	padding: 0px 23px 0px;
 	position: relative;
 	margin: 0 auto;
+	overflow: hidden;
 }
+
+/*Modal Bootstrap overide*/
+.modal-header{
+	padding-bottom: 0px;
+}
+.modal-body{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.modal-footer {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+/*end*/
+
+/*Tweet*/
+.tweet{
+	margin-left: 58px;
+	padding-bottom: 10px;
+}
+
+.tweeting{
+float: left;
+margin-top: 3px;
+margin-left: -58px;
+}
+
+.username{
+	font-size: 13px;
+	color: #8899a6;
+}
+a:hover span.username{
+	text-decoration:none;
+}
+
+.fullname{
+	font-weight: bold;
+	color: #292f33;
+	font-size: 15px;
+}
+
+a:hover strong.fullname{
+	text-decoration:underline;
+}
+
+.userdata:hover{
+	text-decoration:none;
+}
+/*Tweet end*/
+
+/*Dashboard user mini*/
+.center{
+	position: static;
+	float: none;
+}
+.miniprofile{
+	display:block;
+}
+
+.content{
+	text-align: center;
+}
+
+/*Dashboard stats */
+
+.profile{
+	overflow: hidden;
+}
+
+.profilefooter{
+	overflow: hidden;
+}
+
+.flobtn{
+	padding: 15px 12px 15px 12px;
+}
+.userstats {
+	float: left;
+	overflow: hidden;
+}
+
+.stats li {
+	display: block;
+	float: left;
+	overflow: hidden;
+	display: inline;
+}
+
+.stats a {
+	float: left;
+	padding: 7px;
+	color: #999;
+	font-size: 10px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+.stats a strong {
+	color: #0084b4;
+	display: block;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 22px;
+}
+/* Mian User data */
+
+

@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   validates_presence_of :full_name
   validates_presence_of :username
+  validates_uniqueness_of  :username
+
+  has_attached_file :avatar, :styles => { :medium => "73x73>", :thumb => "48x48>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   #Relationships <3
   has_many :tweets, :dependent => :destroy
@@ -21,7 +25,6 @@ class User < ActiveRecord::Base
     username
   end
 
-
   # New Find Case Insinsitive Find For users
   scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
 
@@ -33,5 +36,7 @@ class User < ActiveRecord::Base
     relationships.create!(followed_id: other_user.id)
   end
 
-  
+  def feed
+    Tweet.from_users_followed_by(self)
+  end
 end
