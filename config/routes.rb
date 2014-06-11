@@ -1,12 +1,15 @@
 Flutter::Application.routes.draw do
   devise_for :users
+  devise_scope :user do
+    get "settings" => "devise/registrations#edit", as: "settings"
+  end
   resources :tweet
   resources :relationship
 
   get '/followers', :to => "dashboard#followers", as: "jibjab"
   get '/following', :to => "dashboard#following", as: "jabjib"
   
-  get '/settings',   :to => "user#settings",    as: "settings"
+  # get '/settings',   :to => "user#settings",    as: "settings"
   get '/users',     :to => "user#index",  as: "users"
   get '/:username', :to => "user#show",   as: "user"
   

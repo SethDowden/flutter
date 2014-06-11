@@ -1,11 +1,7 @@
 <div class="module">
 	<div class="profile">
 			<div class="content">
-				<% if user.avatar %>
-					<%= image_tag user.avatar.url(:thumb), :class => "center" %>
-				<% else %>
-					<img src="hholder.js/48x48/#92d8a5:#74ac84" class="center"> 
-				<% end %></br>
+				<%= image_tag user.avatar.url(:thumb), :class => "center" %></br>
 				<strong class="fullname center"> <%= user.full_name  %></strong></br>
 				<span class="username center"> @<%= user.username %></span></br>
 				<span class="center"><%= user.bio %></span></br>	

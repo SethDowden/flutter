@@ -1,11 +1,7 @@
 <div class="tweet">
 	<div class="contetn">
 		<a class="userdata" href="<%= user_path(tweet.user) %>">
-			<% if tweet.user.avatar %>
-				<%= image_tag tweet.user.avatar.url(:thumb), :class => 'tweeting' %>
-			<% else %>
-				<img src="hholder.js/48x48/#92d8a5:#74ac84" class="tweeting"> 
-			<% end %>
+			<%= image_tag tweet.user.avatar.url(:thumb), :class => 'tweeting' %>
 			<strong class="fullname"><%= tweet.user.full_name	%></strong> 
 			<span class="username ">@<%= tweet.user.username %></span>
 		</a>
