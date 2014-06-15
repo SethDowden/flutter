@@ -1,11 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flutter</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if current_user %>
+  <%= render partial: "shared/navbar" %>
+<% end %>
+<div class="wrapper">
+  <div class="dashboard">
+  <%= yield :dashboard %>
+  </div>
+  <div class="content-main">
 <%= render :partial => "shared/dashboard_user_header", :locals => {:user => current_user} %>  
 
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-
-
 
   <h3>Accout</h3>
 
@@ -49,3 +64,7 @@
 
   <div><%= f.submit "Update" %></div>
 <% end %>
+  </div>
+</div>
+</body>
+</html>

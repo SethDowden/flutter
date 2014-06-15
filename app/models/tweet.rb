@@ -1,6 +1,7 @@
 class Tweet < ActiveRecord::Base
 	validates_presence_of :user_id, :tweet
 	belongs_to :user
+	validates_presence_of :user_id
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
