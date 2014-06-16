@@ -9,8 +9,9 @@ gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+# heroku gems
 gem 'pg'
-
+gem 'rails_12factor'
 #manage image upload
 gem 'paperclip'
 
