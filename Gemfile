@@ -8,7 +8,8 @@ gem 'populator'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg'
 
 #manage image upload
 gem 'paperclip'
@@ -57,3 +58,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.0.0p353"
