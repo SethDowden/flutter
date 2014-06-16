@@ -11,7 +11,6 @@ gem 'rails', '4.0.2'
 # gem 'sqlite3'
 # heroku gems
 gem 'pg'
-gem 'rails_12factor'
 #manage image upload
 gem 'paperclip'
 
