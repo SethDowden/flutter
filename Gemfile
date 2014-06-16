@@ -8,9 +8,12 @@ gem 'populator'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+gem 'sqlite3'
 # heroku gems
-gem 'pg'
+group :production, :staging do
+	gem 'pg'
+	gem 'rails_12factor'
+end
 #manage image upload
 gem 'paperclip'
 
