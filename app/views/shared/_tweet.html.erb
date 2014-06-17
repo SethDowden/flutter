@@ -1,11 +1,13 @@
-<div class="tweet">
-	<div class="contetn">
-		<a class="userdata" href="<%= user_path(tweet.user) %>">
-			<%= image_tag tweet.user.avatar.url(:thumb), :class => 'tweeting' %>
-			<strong class="fullname"><%= tweet.user.full_name	%></strong> 
-			<span class="username ">@<%= tweet.user.username %></span>
-		</a>
-		●<%= time_ago_in_words(tweet.created_at) %>
-		<p><%= tweet.tweet %></p>
+<% tweets.each do |tweet| %>
+	<div class="tweet">
+		<div class="contetn">
+			<a class="userdata" href="<%= user_path(tweet.user) %>">
+				<%= image_tag tweet.user.avatar.url(:thumb), :class => 'tweeting' %>
+				<strong class="fullname"><%= tweet.user.full_name	%></strong> 
+				<span class="username ">@<%= tweet.user.username %></span>
+			</a>
+			●<%= time_ago_in_words(tweet.created_at) %>
+			<p><%= tweet.tweet %></p>
+		</div>
 	</div>
-</div>
+<% end %>

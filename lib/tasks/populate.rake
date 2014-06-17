@@ -1,9 +1,8 @@
 task :populate => :environment do
 	password = "password"
-	puts "fuck fuck"
 	User.populate 100 do |user|
 	  user.full_name = Faker::Name.name
-	  user.username = Faker::Internet.user_name
+	  user.username = Faker::Internet.user_name.gsub(/(\.)/, ' ')
 	  user.location = Faker::Address.city
 	  user.website = Faker::Internet.url
 	  user.bio = Faker::Lorem.sentences(1, true)
@@ -15,7 +14,7 @@ end
 
 task :tweet => :environment do
 	User.all.each do |user|
-		rand = Random.new.rand(3..50)
+		rand = Random.new.rand(3..20)
 		Tweet.populate rand do |tweet|
 			tweet.tweet = user.bio = Faker::Lorem.sentences(2)
 			tweet.created_at = (rand(400)).days.ago
@@ -26,11 +25,22 @@ end
 
 task :fallow => :environment do 
 	User.all.each do |user|
-		rand = Random.new.rand(1..4)
 		User.all.count
-		Relationship.populate rand do |rel|
+		rand(3..20).times do |t|
+			
+			fallowing = []
+			user.following.each do |u|
+				fallowing << u.id
+			end
+
+			x = rand(0..User.all.count)
+			while fallowing.any? { |int| int == x }
+					x = rand(0..User.all.count)
+			end
+			rel = Relationship.new 
 			rel.follower_id = user.id
-			rel.followed_id = rand(0..User.all.count)
+			rel.followed_id = x
+			rel.save
 		end
 	end
 end

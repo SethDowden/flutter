@@ -5,8 +5,6 @@
 	<% if @user.tweets.count == 0 %>
 		<p> <%= @user.full_name %> has no Tweets</p>
 	<% else %>
-		<% @tweets.each do |tweet| %>
-			<%= render :partial => "shared/tweet", :locals => {:tweet => tweet}  %>
-		<% end %>
+		<%= render :partial => "shared/tweet", :locals => {:tweets => @tweets}  %>
 	<% end %>
 </div>
