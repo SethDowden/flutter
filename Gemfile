@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Infinite scrolling
+gem 'will_paginate'
+
 # Populate Faker
 gem 'faker'
 gem 'populator'

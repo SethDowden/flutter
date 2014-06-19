@@ -2,11 +2,16 @@
 
 <div class="module">
 	<h3>Tweets</h3>
-	<div>
+	<div id="tweets">
 		<% if current_user	.tweets.count == 0 %>
 			<p> <%= current_user	.full_name %> has no Tweets</p>
 		<% else %>
 			<%= render :partial => "shared/tweet", :locals => {:tweets => @feed}  %>
 		<% end %>
 	</div>
+</div>
+
+
+<div id="infinite-scrolling">
+  <%= will_paginate @feed %>
 </div>
